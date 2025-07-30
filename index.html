@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Malkin's Sick Day Chronicles</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #c2185b;
+    }
+    .section {
+      background: #ffe4ec;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+      max-width: 600px;
+    }
+    .prescription {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    .start-button {
+      background-color: #f06292;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .start-button:hover {
+      background-color: #e91e63;
+    }
+    .page {
+      transition: opacity 1s ease-in-out;
+    }
+    .hidden {
+      display: none;
+    }
+    .note {
+      font-size: 1.4em;
+      color: #880e4f;
+      padding: 40px;
+      line-height: 1.8em;
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      animation: floatUp 5s infinite ease-in;
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+    @keyframes floatUp {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-100vh);}
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="mainPage">
+    <h1>🩺 Malkin's Sick Day Chronicles</h1>
+
+    <div class="section">
+      <h2>📝 Patient Report</h2>
+      <p>Malkin has been diagnosed with: <strong>extreme cuteness, mild fever, and mild cough</strong>.</p>
+    </div>
+
+    <div class="section">
+      <h2>💊 Prescription from me</h2>
+      <p class="prescription">
+        - Hydrate yourself at regular intervals 💧 <br>
+        - Virtual hugs every hour 🤗 <br>
+        - Real ones incoming within a day! 💕 <br>
+        - No overthinking — your baby elephant is a shield to all the negative thoughts 🐘❤️
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🎁 Virtual Recovery Kit</h2>
+      <p>
+        🫖 Here’s warm soup just for you <br>
+        🤗 Hugs preloaded and sent <br>
+        🧸 And soft cuddles from your baby elephant 💗
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>📅 Countdown to Cuddles</h2>
+      <p>T-minus 1 day until Malkin gets real hugs from Dev 💞</p>
+    </div>
+
+    <div class="section">
+      <h2>💌 A Final Message from Dev</h2>
+      <p>Your baby elephant has written something special for you...</p>
+      <button class="start-button" onclick="showNote()">Read the Note</button>
+    </div>
+  </div>
+
+  <div class="page hidden" id="notePage">
+    <h1>💖 From Dev, With All His Love</h1>
+    <div class="section note">
+      Malkin, my love —<br><br>
+      Even on your lowest days, you are the brightest light in my world.  
+      If I could hold you right now, I would tuck you into my arms and protect you from every ounce of pain.  
+      You mean everything to me - your smile, your voice, your heart - they are my peace.  
+      Being away from you hurts, but loving you is the most beautiful thing I’ve ever known.<br><br>
+      Please rest, hydrate, and remember:  
+      Your baby elephant is never far.  
+      I’m with you in every heartbeat, in every thought, in every silent wish for you to get better.  
+      I love you beyond words - and I always will.<br><br>
+      Forever yours,  
+      <br><strong>Dev 🐘</strong>
+    </div>
+    <div style="margin-top: 20px;">
+      <button class="start-button" onclick="goBack()">← Back</button>
+    </div>
+  </div>
+
+  <script>
+    function showNote() {
+      document.getElementById("mainPage").classList.add("hidden");
+      document.getElementById("notePage").classList.remove("hidden");
+    }
+    function goBack() {
+      document.getElementById("notePage").classList.add("hidden");
+      document.getElementById("mainPage").classList.remove("hidden");
+    }
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
